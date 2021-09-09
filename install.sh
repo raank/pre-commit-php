@@ -154,7 +154,7 @@ config_pre_commit() {
     title_subtitle "${yellow}Configurando o pre commit!" "path: ${yellow}${DIR}"
 
     if ! [ -d "$config_file_path" ]; then
-      curl -OL --no-progress https://raw.githubusercontent.com/raank/pre-commit-php/main/.pre-commit-config.yaml.example
+      install=$(curl -O 2>&1 https://raw.githubusercontent.com/raank/pre-commit-php/main/.pre-commit-config.yaml.example)
 
       if ! [ -f "$config_dir" ]; then
         mkdir "$config_dir"
