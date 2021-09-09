@@ -3,7 +3,7 @@
 ### Usage:
 
 ```shell
-curl -O "https://raw.githubusercontent.com/raank/pre-commit-php/1.0.0/install.sh"; mv ./install.sh /usr/local/bin/pre-commit-php; sudo chmod a+x /usr/local/bin/pre-commit-php;
+curl -O "https://raw.githubusercontent.com/raank/pre-commit-php/main/install.sh"; mv ./install.sh /usr/local/bin/pre-commit-php; sudo chmod a+x /usr/local/bin/pre-commit-php;
 ```
 
 
