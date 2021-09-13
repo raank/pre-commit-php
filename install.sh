@@ -62,7 +62,7 @@ divider() {
 }
 
 error_tip() {
-  printf "#\n#$red $1 $reset\n#$white $2 $reset\n#"
+  printf "\n#\n#$red $1 $reset\n#$white $2 $reset\n#\n"
 }
 
 curl_install() {
@@ -131,14 +131,11 @@ composer_install() {
 
 install_pre_commit() {
   name="Pre Commit - Executável"
-  global_bin="/usr/local/bin/pre-commit"
-
-  if [ -f "$global_bin" ]; then
-    title_subtitle "${yellow}${name}${white} já instalado!" "path: ${yellow}${global_bin}"
-  else
-    error_tip "Pip não instalado!" "Instale com o comando: ${yellow}pip install pre-commit ${white}OU${yellow} pip3 install pre-commit\n${white}# Volte a rodar o comando: ${yellow}pre-commit-php install"
-    exit 1
+  if ! command -v pre-commit &> /dev/null; then
+    error_tip "Pacote não instalado!" "Instale com o comando: ${yellow}pip install pre-commit ${white}OU${yellow} pip3 install pre-commit\n${white}# Volte a rodar o comando: ${yellow}pre-commit-php install"
   fi
+
+  title_subtitle "${yellow}${name}${white} já instalado!" "path: ${yellow}${global_bin}"
 }
 
 config_pre_commit() {
@@ -166,8 +163,9 @@ config_pre_commit() {
 
     cp "$config_file_path" $DIR
 
-    install=$(${global_bin} install)
-    rm "$config_file"
+    if command -v pre-commit &> /dev/null; then
+      install=$(pre-commit install)
+    fi
   fi
 }
 
@@ -184,8 +182,12 @@ if [ "$COMMAND" == 'install' ]; then
   title_subtitle "Configurando ferramentas auxiliares" "${yellow}Instalando!"
   divider
 
-  if ! [ -f "/usr/local/bin/composer" ] || ! [ -f "${DIR}/composer.json" ]; then
-    error "Seu ambiente ainda não está configurado!"
+  if ! command -v composer &> /dev/null; then
+    error "Composer não está instalado"
+  fi
+
+  if ! [ -f "${DIR}/composer.json" ]; then
+    error "Você não pode instalar nesse diretório."
   fi
 
   curl_install "PHP Stan" "https://github.com/phpstan/phpstan/releases/download/0.12.98/phpstan.phar"
