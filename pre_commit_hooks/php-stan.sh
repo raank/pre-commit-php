@@ -17,12 +17,13 @@
 ################################################################################
 
 # Plugin title
-title="PHPStan"
+title="PHP Stan"
 
 # Possible command names of this tool
 local_command="phpstan.phar"
 vendor_command="~/.composer/vendor/bin/phpstan"
 global_command="phpstan"
+
 
 # Print a welcome and locate the exec for this tool
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -34,7 +35,7 @@ source $DIR/helpers/locate.sh
 command_files_to_check="${@:2}"
 command_args=$1
 command_to_run="${exec_command} analyse --no-progress ${command_args} ${command_files_to_check}"
-
+echo "${command_to_run}"
 echo -e "${bldwht}Running command ${txtgrn} ${exec_command} analyse ${command_args} ${txtrst}"
 hr
 command_result=`eval $command_to_run`

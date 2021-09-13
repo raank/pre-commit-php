@@ -35,6 +35,7 @@ command_files_to_check="${@:2}"
 command_args=$1
 command_to_run="${exec_command} text ${command_args} ${command_files_to_check}"
 
+echo "${command_to_run}"
 echo -e "${bldwht}Running command ${txtgrn} ${exec_command} text ${command_args} ${txtrst}"
 hr
 command_result=`eval $command_to_run`

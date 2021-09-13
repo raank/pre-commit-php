@@ -5,6 +5,7 @@ parameters:
 
     ignoreErrors:
         - '#Call to an undefined method [a-zA-Z0-9\\_]+|[a-zA-Z0-9\\_]+::[a-zA-Z0-9\\_]+\(\)#'
+        - '#Call to static method [a-zA-Z0-9\\_]+|[a-zA-Z0-9\\_]+() on an unknown class [a-zA-Z0-9\\_].#'
 
     excludePaths:
         - */vendor/*
