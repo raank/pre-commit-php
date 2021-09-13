@@ -42,7 +42,7 @@
   files: \.php$
 
 - id: php-stan
-  name: PHPStan
+  name: PHP Stan
   description: Run PHPStan against all staged PHP files.
   entry: pre_commit_hooks/php-stan.sh
   language: script
