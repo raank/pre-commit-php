@@ -41,11 +41,11 @@ repos:
           "-c ~/.pre-commit/phpstan.neon"
         ]
 
-  - repo: https://github.com/raank/pre-commit-php.git
-    rev: 1.1.0
-    hooks:
-      - id: php-md
-        files: \.(php)$
-        args: [
-          "cleancode,codesize,controversial,design,naming,unusedcode"
-        ]
+#  - repo: https://github.com/raank/pre-commit-php.git
+#    rev: 1.1.0
+#    hooks:
+#      - id: php-md
+#        files: \.(php)$
+#        args: [
+#          "cleancode,codesize,controversial,design,naming,unusedcode"
+#        ]
