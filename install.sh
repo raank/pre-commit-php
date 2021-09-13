@@ -207,6 +207,11 @@ if [ "$COMMAND" == 'install' ]; then
   config_pre_commit
   divider
   title_subtitle "Criando um arquivo de Documentação" "cd /path/folder; pre-commit-php doc {path}"
+
+  rm "$PWD/phpstan.phar"
+  rm "$PWD/phpmd.phar"
+  rm "$PWD/phpcs.phar"
+  rm "$PWD/php-cs-fixer-v3.phar"
 elif [ "$COMMAND" == "doc" ]; then
 
   #################
