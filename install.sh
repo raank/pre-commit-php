@@ -151,6 +151,7 @@ config_pre_commit() {
     title_subtitle "${yellow}Configurando o pre commit!" "path: ${yellow}${DIR}"
 
     if ! [ -d "$config_file_path" ]; then
+      install_phpstan_neon=$(curl -O 2>&1 https://raw.githubusercontent.com/raank/pre-commit-php/main/phpstan.neon)
       install=$(curl -O 2>&1 https://raw.githubusercontent.com/raank/pre-commit-php/main/.pre-commit-config.yaml.example)
 
       if ! [ -f "$config_dir" ]; then
@@ -159,6 +160,7 @@ config_pre_commit() {
       fi
 
       mv "${DIR}/.pre-commit-config.yaml.example" "$config_file_path"
+      mv "${DIR}/phpstan.neon" "$config_dir"
     fi
 
     cp "$config_file_path" $DIR
@@ -190,15 +192,15 @@ if [ "$COMMAND" == 'install' ]; then
     error "Você não pode instalar nesse diretório."
   fi
 
-  curl_install "PHP Stan" "https://github.com/phpstan/phpstan/releases/download/0.12.98/phpstan.phar"
+  composer_install "PHP Stan" "phpstan/phpstan"
   divider
-  curl_install "PHP Mess Detector" "https://phpmd.org/static/latest/phpmd.phar"
-  divider
-  curl_install "PHP CodeSniffer + PHP Code Beautifier" "https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar"
-  divider
-  curl_install "PHP Code Fixer" "https://cs.symfony.com/download/php-cs-fixer-v3.phar" "php-cs-fixer"
-  divider
-  curl_install "PHP CBF " "https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar"
+  composer_install "PHP Mess Detector" "phpmd/phpmd"
+  #divider
+  #curl_install "PHP CodeSniffer + PHP Code Beautifier" "https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar"
+  #divider
+  #curl_install "PHP Code Fixer" "https://cs.symfony.com/download/php-cs-fixer-v3.phar" "php-cs-fixer"
+  #divider
+  #curl_install "PHP CBF " "https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar"
   divider
   composer_install "PHP Swagger" "zircote/swagger-php"
   divider
@@ -208,10 +210,10 @@ if [ "$COMMAND" == 'install' ]; then
   divider
   title_subtitle "Criando um arquivo de Documentação" "cd /path/folder; pre-commit-php doc {path}"
 
-  rm "$PWD/phpstan.phar"
-  rm "$PWD/phpmd.phar"
-  rm "$PWD/phpcs.phar"
-  rm "$PWD/php-cs-fixer-v3.phar"
+  #rm "$PWD/phpstan.phar"
+  #rm "$PWD/phpmd.phar"
+  #rm "$PWD/phpcs.phar"
+  #rm "$PWD/php-cs-fixer-v3.phar"
 elif [ "$COMMAND" == "doc" ]; then
 
   #################

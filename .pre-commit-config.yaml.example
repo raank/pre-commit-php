@@ -37,6 +37,9 @@ repos:
     hooks:
       - id: php-stan
         files: \.(php)$
+        args: [
+          "-c ~/.pre-commit/phpstan.neon"
+        ]
 
   - repo: https://github.com/raank/pre-commit-php.git
     rev: 1.1.0

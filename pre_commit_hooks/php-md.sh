@@ -21,7 +21,7 @@ title="PHP Mess Detector"
 
 # Possible command names of this tool
 local_command="phpmd.phar"
-vendor_command="vendor/bin/phpmd"
+vendor_command="~/.composer/vendor/bin/phpmd"
 global_command="phpmd"
 
 # Print a welcome and locate the exec for this tool

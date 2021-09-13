@@ -21,7 +21,7 @@ title="PHPStan"
 
 # Possible command names of this tool
 local_command="phpstan.phar"
-vendor_command="vendor/bin/phpstan"
+vendor_command="~/.composer/vendor/bin/phpstan"
 global_command="phpstan"
 
 # Print a welcome and locate the exec for this tool
