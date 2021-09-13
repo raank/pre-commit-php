@@ -16,7 +16,7 @@ title="PHP Unit Task Runner"
 
 # Possible command names of this tool
 local_command="phpunit.phar"
-vendor_command="vendor/bin/phpunit"
+vendor_command="$HOME/.composer/vendor/bin/phpunit"
 global_command="phpunit"
 
 # Print a welcome and locate the exec for this tool

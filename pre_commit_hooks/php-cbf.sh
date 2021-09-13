@@ -18,7 +18,7 @@ title="PHP Code Beautifier and Fixer"
 
 # Possible command names of this tool
 local_command="phpcbf.phar"
-vendor_command="vendor/bin/phpcbf"
+vendor_command="$HOME/.composer/vendor/bin/phpcbf"
 global_command="phpcbf"
 
 # Print a welcome and locate the exec for this tool

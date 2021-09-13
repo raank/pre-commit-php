@@ -18,7 +18,7 @@ title="PHP Codesniffer"
 
 # Possible command names of this tool
 local_command="phpcs.phar"
-vendor_command="vendor/bin/phpcs"
+vendor_command="$HOME/.composer/vendor/bin/phpcs"
 global_command="phpcs"
 
 # Print a welcome and locate the exec for this tool

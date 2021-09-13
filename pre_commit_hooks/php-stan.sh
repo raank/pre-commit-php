@@ -21,7 +21,7 @@ title="PHP Stan"
 
 # Possible command names of this tool
 local_command="phpstan.phar"
-vendor_command="~/.composer/vendor/bin/phpstan"
+vendor_command="$HOME/.composer/vendor/bin/phpstan"
 global_command="phpstan"
 
 
