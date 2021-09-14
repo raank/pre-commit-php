@@ -240,7 +240,7 @@ elif [ "$COMMAND" == "doc" ]; then
 
   title_subtitle "Criando arquivo de Documentação" "Local: ${yellow}${DIR}"
 
-  ARGUMENTS="$DIR --output $OUTPUT --format yaml --exclude $DIR/vendor"
+  ARGUMENTS="$DIR --output $OUTPUT --exclude $DIR/vendor"
 
   #################
   # Adiciona o arquivo de constantes caso exista
